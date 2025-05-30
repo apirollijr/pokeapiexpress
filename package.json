@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass --watch public/scss:public",
+    "start": "live-server public",
+    "dev": "concurrently \"npm run scss\" \"npm run start\""
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,12 @@
   "dependencies": {
     "axios": "^1.9.0",
     "cors": "^2.8.5",
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.10",
+    "sass": "^1.89.0"
   }
 }

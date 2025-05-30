@@ -1,16 +1,20 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const path = require('path');
+var express = require('express');
+var app = express();
 
-const pokemonRoutes = require('./routes/pokemon');
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 
-app.use(cors());
-app.use(express.json());
-app.use('/pokemon', pokemonRoutes);
-app.use(express.static(path.join(__dirname, 'public')));
+// use res.render to load up an ejs view file
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Pokémon API server running on http://localhost:${PORT}`);
+// index page
+app.get('/', function(req, res) {
+  res.render('pages/index');
 });
+
+// about page
+app.get('/about', function(req, res) {
+  res.render('pages/about');
+});
+
+app.listen(8080);
+console.log('Server is listening on port 8080');
